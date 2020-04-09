@@ -33,7 +33,7 @@ This lab is broken up into the following sections:
 
    [Salesforce Developer Edition signup](https://developer.salesforce.com/signup)
 
-1.2 Enter the required information and follow the prompts to complete teh signup process
+1.2 Enter the required information and follow the prompts to complete the signup process.
 
 
 
@@ -62,7 +62,9 @@ In this section you'll create a *Connected App* in Salesforce so that the App Co
 2.6 Fill in the required values for a new Connected App
 
    a. Set the **Connected App Name** property to `IBM App Connect`
+
    b. Set the **API Name** to `IBM_App_Connect`
+
    c. Enter your email address as the **Contact Email**
 
   ![New Connected App](images/sfnewconnectedapp.png)
@@ -70,7 +72,9 @@ In this section you'll create a *Connected App* in Salesforce so that the App Co
 2.7 Configure the OAuth settings
 
    a. Select the **Enable OAuth Setting** check box.
+
    b. Set the **Callback URL** to `https://www.ibm.com`
+
    c. Under **Selected OAuth Scopes** select  **Access and manage your data (api)** and click the arrow under the **Add** label
 
   ![OAuth settings](images/sfoauth.png)
@@ -82,13 +86,13 @@ In this section you'll create a *Connected App* in Salesforce so that the App Co
 2.10 Check your email for the email address that you use as your Salesforce username. You should have received an email from  Salesforce with the subject **Your new Salesforce security token**. Copy the **Security Token** to the same text file that you used for the  **Consumer Key** and **Consumer Secret**
 
   ![Security token](images/sfsectoken.png)
-  
+
 
 ## Section 3: Setup connectivity to Salesforce in App Connect Designer
 
 App Connect Designer is a component of Cloud Pak for Integration that provides an authoring environment in which you can create, test, and share flows for an API. You can share your flows by using the export and import functions, or by adding them to an Asset Repository for reuse.
 
-3.1 In a new browser tab open the URL for **App Connect Designer**. Sign in with the credentials assigned to you by your instructors. **Note** You will be sharing the IBM Cloud Pak for Integration cluster with other students so  you will see their works as you navigate through he tool. You will use a naming scheme for the artifacts that you create that starts with the username assigned to you by the instructors (e.g. *user005*).
+3.1 In a new browser tab open the URL for **App Connect Designer**. Sign in with the credentials assigned to you by your instructors. **Note** You will be sharing the IBM Cloud Pak for Integration cluster with other students so  you will see their work  as you navigate through he tool. You will use a naming scheme for the artifacts that you create that starts with the username assigned to you by the instructors (e.g. *user005*).
 
 3.2 Click the **Settings** icon and then select **Catalog**
 
@@ -98,15 +102,19 @@ App Connect Designer is a component of Cloud Pak for Integration that provides a
 
    ![New Salesforce Connection](images/addanewaccount.png)
 
-   **Note** If there are no existing connection shown click on **Connect***
+   **Note** If there are no existing connection shown click on **Connect**
 
 3.4 Enter the following values referring to the text file from  the previous section where you saved your Salesforce credentials.
 
    a. For the **Login URL** enter `https://login.salesforce.com`
+
    b. For the **Username** enter the email you use to login to Salesforce
-   c. For the **Password** enter the password you use to login to Salesforce. Then append the value of the  **Security Token** (that you saved in the previous section) to the password. For example if your password is `foo` and your security token is `bar` you would enter `foobar` into the password field.
-   d. For the **Client Id** copy and past the value of the  **Client Id** (that you saved in the previous section).
-   e. For the **Client Secret** copy and past the value of the  **Client Secret** (that you saved in the previous section).
+
+   c. For the **Password** enter the password you use to login to Salesforce. Then append the value of the  **Security Token**  (that you saved in the previous section) to the password. For example if your password is `foo` and your security token is `bar` you would enter `foobar` into the password field.
+
+   d. For the **Client Id** copy and past the value of the  **Consumer Key** (that you saved in the previous section).
+
+   e. For the **Client Secret** copy and past the value of the  **Consumer Secret** (that you saved in the previous section).
 
    ![Filled in Salesforce Connection](images/sfconnectionform.png)
 
@@ -138,8 +146,11 @@ App Connect Designer is a component of Cloud Pak for Integration that provides a
 4.5 Next you will add the properties of the input data for your flow. *Note:* Name them exactly as instructed (including matching case) so that your flow will work with the *Stock Trader Lite* app.
 
    a. Enter `ClientId` as the first property and then click **Add property +**
+
    b. Enter `FirstName` as the next property and then click **Add property +**
+
    c. Enter `LastName` as the next property and then click **Add property +**
+
    d. Enter `Email` as the next property
 
    When you're done the screen should look like the following:
@@ -155,8 +166,11 @@ App Connect Designer is a component of Cloud Pak for Integration that provides a
 4.8 Click on the **+** icon.
 
    a. Scroll down to Salesforce
+
    b. Select your account from the dropdown
+
    c. Expand **Contacts**
+
    d. Click **Create Contact**
 
    ![Implement flow](images/implementflow1.png)
@@ -180,8 +194,11 @@ App Connect Designer is a component of Cloud Pak for Integration that provides a
 4.13 Click on **Request body parameters** and then edit the imput parameters that will be used in the test.
 
   a. Set the **Client Id** to blank. This value will be generated by Salesforce and returned.
+
   b. Enter a **FirstName** value.
+
   c. Enter a **LastName** value.
+
   d. Enter an **Email** in a valid email format
 
   ![Enter test parameters](images/edittestparams.png)
@@ -198,15 +215,15 @@ App Connect Designer is a component of Cloud Pak for Integration that provides a
 
 4.17 Select **Export for integration server (BAR)** and click **Export**
 
-4.18 Save the file to a folder of your choosing keeping the name that was pre-filled for you. (eg *user005sf.bar**).
+4.18 Save the file to a folder of your choosing keeping the name that was pre-filled for you. (eg *user005sf.bar*).
 
 ## Section 5: Save your Salesforce credentials as an OpenShift secret
 
 To deploy an Integration Server for your flow, you need to create a Kubernetes secret with your Salesforce credentials in the  OpenShift cluster running Cloud Pak for Integration.  We've created a helper app for you to do this.
 
-5.1 In a separate browser tab, launch  the  helper app. When prompted login using your workshop credentials
+5.1 In a separate browser tab, launch  the  helper app using the URL provided to you by the instructor. When prompted login using your workshop credentials
 
-5.2 Enter the Salesforce authentication info requested. Note that in this UI you enter the Salesforce password and Security Token are entered via separate fields.
+5.2 Enter the Salesforce authentication info requested. Note that in this UI the Salesforce password and Security Token are entered in separate fields.
 
   ![Save Salesforce credentials](images/savesfcreds.png)
 
@@ -219,7 +236,7 @@ To deploy an Integration Server for your flow, you need to create a Kubernetes s
 
 In this Step you'll create an Integration Server instance and deploy your flow to it.
 
-6.1 In a separate browser tab bring up the App Connect Dashboard using the URL provided to you by your instructors.  If prompted enter your user credentials.
+6.1 In a separate browser tab bring up the App Connect Dashboard using the URL provided to you by your instructors.  If prompted enter your user credentials. Click **Create server**
 
   ![Assemble](images/dashboardui.png)
 
@@ -242,8 +259,11 @@ In this Step you'll create an Integration Server instance and deploy your flow t
 6.7 Enter the following settings:
 
   a. In the **Details** section for the **Name** enter `usernnsf` where *usernn* is the username of your credentials (e.g. *user005sf**)
+
   b. In the **Details** section for  **IBM App Connect Designer flows** select **Enabled for local connectors only**
+
   c. In the **Integration Server** section for **Name of the secret that contains the server configuration** enter `usernn-sf-connect` where *usernn* is the username of your credentials (e.g. *user005-sf-connect**)
+
   d. In the **Configuration for deployments** section change the **Replica count** to 1
 
   The top half of the dialog should look like the following:
@@ -254,7 +274,7 @@ In this Step you'll create an Integration Server instance and deploy your flow t
 
   ![Bottom Half](images/bottomhalf.png)
 
-6.8 Click **Create**. The status of the server will be eventually shown. Wait until the server status shows as **Started**. Note you have to refresh the page to see the status change.
+6.8 Click **Create**. The status of the server will be eventually shown. Wait until the server status shows as **Started**. Note you may have to refresh the page to see the status change.
 
   ![Activate API](images/serverstarted.png)
 
@@ -301,8 +321,8 @@ In this Step you'll create an Integration Server instance and deploy your flow t
 
 Congratulations ! You successfully completed the following key tasks in this lab:
 
-* Created an API by importing an OpenAPI definition for an existing REST service.
+* Connected to Salesforce
+* Created an App Connect designer flow to push client data to Salesforce contacts.
+* Deployed the flow as an Integration Server in App Connect Dashboard
 * Configured a  ClientID/API Key  for security set up a proxy to the existing API.
-* Tested the API in the API Connect developer toolkit.
-* Deployed the Stock Trader app and configured it to use the API you created.
-* Tested the Stock Trader app to make sure it successfully uses your API.
+* Tested the flow with new data.
