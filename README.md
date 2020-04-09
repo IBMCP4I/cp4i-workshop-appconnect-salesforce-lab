@@ -258,21 +258,21 @@ In this Step you'll create an Integration Server instance and deploy your flow t
 
 6.7 Enter the following settings:
 
-    a. In the **Details** section for the **Name** enter `usernnsf` where *usernn* is the username of your credentials (e.g. *user005sf**)
+    6.7.1 In the **Details** section for the **Name** enter `usernnsf` where *usernn* is the username of your credentials (e.g. *user005sf**)
 
-    b. In the **Details** section for  **IBM App Connect Designer flows** select **Enabled for local connectors only**
+    6.7.2 In the **Details** section for  **IBM App Connect Designer flows** select **Enabled for local connectors only**
 
-    c. In the **Integration Server** section for **Name of the secret that contains the server configuration** enter `usernn-sf-connect` where *usernn* is the username of your credentials (e.g. *user005-sf-connect**)
+    6.7.3 In the **Integration Server** section for **Name of the secret that contains the server configuration** enter `usernn-sf-connect` where *usernn* is the username of your credentials (e.g. *user005-sf-connect**)
 
-    d. In the **Configuration for deployments** section change the **Replica count** to 1
+    6.7.4 In the **Configuration for deployments** section change the **Replica count** to 1
 
-    The top half of the dialog should look like the following:
+  The top half of the dialog should look like the following:
 
-    ![Top Half](images/tophalf.png)
+  ![Top Half](images/tophalf.png)
 
-    The bottom half of the dialog should look like the following:
+  The bottom half of the dialog should look like the following:
 
-    ![Bottom Half](images/bottomhalf.png)
+  ![Bottom Half](images/bottomhalf.png)
 
 6.8 Click **Create**. The status of the server will be eventually shown. Wait until the server status shows as **Started**. Note you may have to refresh the page to see the status change.
 
