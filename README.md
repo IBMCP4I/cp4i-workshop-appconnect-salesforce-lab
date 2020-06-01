@@ -6,7 +6,7 @@ The architecture of the app is shown below:
 
 ![Architecture diagram](images/architecture.png)
 
-The **portfolio** microservice invokes the REST endpoint of the new flow whenever a new client is created or read by the app and this results in a new contact being created  in or read from  Salesforce.
+The **portfolio** microservice invokes the REST endpoint of the new flow whenever a new client is created or read by the app and this results in a new contact being created in, or read from  Salesforce.
 
 This lab is broken up into the following sections:
 
@@ -94,7 +94,7 @@ In this section you'll create a *Connected App* in Salesforce so that the App Co
 
 App Connect Designer is a component of Cloud Pak for Integration that provides an authoring environment in which you can create, test, and share flows for an API. You can share your flows by using the export and import functions, or by adding them to an Asset Repository for reuse.
 
-3.1 In a new browser tab open the URL for **App Connect Designer**. Sign in with the credentials assigned to you by your instructors. **Note** You will be sharing the IBM Cloud Pak for Integration cluster with other students so  you will see their work  as you navigate through he tool. You will use a naming scheme for the artifacts that you create that starts with the username assigned to you by the instructors (e.g. *user005*).
+3.1 In a new browser tab open the URL for **App Connect Designer**. Sign in with the credentials assigned to you by your instructors. **Note** You will be sharing the IBM Cloud Pak for Integration cluster with other students so  you will see their work  as you navigate through the tool. You will use a naming scheme for the artifacts that you create that starts with the username assigned to you by the instructors (e.g. *user005*).
 
 3.2 Click the **Settings** icon and then select **Catalog**
 
