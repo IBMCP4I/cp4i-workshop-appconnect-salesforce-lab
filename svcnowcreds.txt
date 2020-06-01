@@ -1,0 +1,5 @@
+servicenow 
+https://dev50526.service-now.com
+admin
+client id d137595ead1010105c3d734720751406
+client secret xZP1`?pUqN
