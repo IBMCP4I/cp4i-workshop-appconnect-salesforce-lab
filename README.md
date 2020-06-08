@@ -89,6 +89,13 @@ In this section you'll create a *Connected App* in Salesforce so that the App Co
 
   ![Security token](images/sfsectoken.png)
 
+2.11 If you haven't received the  email do the following from Salesforce:
+
+   - Click on your user name and select **My Settings**
+   - On the left under the **Personal** section click on **Reset My Security Token** and check your email again.
+
+   ![Reset Security Token](images/reset-security-token.png)
+
 
 ## Section 3: Setup connectivity to Salesforce in App Connect Designer
 
@@ -287,11 +294,11 @@ In this Step you'll create an Integration Server instance and deploy your flow t
 
 6.7 Enter the following settings:
 
-  + In the **Details** section for the **Name** enter `usernnsf` where *usernn* is the username of your credentials (e.g. *user005sf**)
+  + In the **Details** section for the **Name** enter `user???sf` where *user???* is the username of your credentials (e.g. *user005sf**)
 
   + In the **Details** section for  **IBM App Connect Designer flows** select **Enabled for local connectors only**
 
-  + In the **Integration Server** section for **Name of the secret that contains the server configuration** enter `usernn-sf-connect` where *usernn* is the username of your credentials (e.g. *user005-sf-connect**)
+  + In the **Integration Server** section for **Name of the secret that contains the server configuration** enter `user???-sf-connect` where *user???* is the username of your credentials (e.g. *user005-sf-connect**)
 
   + In the **Configuration for deployments** section change the **Replica count** to 1
 
@@ -327,7 +334,7 @@ In this Step you'll create an Integration Server instance and deploy your flow t
 
 8.1 From your terminal make sure you're in the **trader-cp4i/scripts** folder
 
-8.2 Run the following script with the Flow ULR you copied to the clipboard:
+8.2 Run the following script with the Flow URL you copied to the clipboard:
 
 ```
 ./addSalesforceIntegration.sh YOUR_FLOW_URL
