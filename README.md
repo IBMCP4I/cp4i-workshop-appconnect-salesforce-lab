@@ -235,23 +235,27 @@ App Connect Designer is a component of Cloud Pak for Integration that provides a
 
    + Click **Retrieve Contacts**
 
-4.19 Change **Maximum number of items to retrieve** to `1`
+4.19 Click **Add condition +** and select the **ClientId** to be equal to the **ContactId**
+
+  ![Add Condition](images/addcondition.png)
+
+4.20 Change **Maximum number of items to retrieve** to `1`
 
   ![Retrieve contacts](images/retrievecontacts.png)
 
-4.20 Click on **Response** to configure what will be returned by the flow. Click in the text box for the **Client Id** property and then click on the icon just to the right of the field. Select the **Contact Id** property of the Salesforce contact.
+4.21 Click on **Response** to configure what will be returned by the flow. Click in the text box for the **Client Id** property and then click on the icon just to the right of the field. Select the **Contact Id** property of the Salesforce contact.
 
   ![Contact Id](images/contactid.png)
 
-4.21 Click **Done**
+4.22 Click **Done**
 
-4.22 Next you'll export the flow so it can deployed in an Integration Server instance. Click the **Settings** icon and then select **Dashboard**. Click the 3 vertical dots on the tile for your new flow and select **Export ...** from the context menu.
+4.23 Next you'll export the flow so it can deployed in an Integration Server instance. Click the **Settings** icon and then select **Dashboard**. Click the 3 vertical dots on the tile for your new flow and select **Export ...** from the context menu.
 
   ![Export flow](images/exportflow.png)
 
-4.23 Select **Export for integration server (BAR)** and click **Export**
+4.24 Select **Export for integration server (BAR)** and click **Export**
 
-4.24 Save the file to a folder of your choosing keeping the name that was pre-filled for you. (eg *user005sf.bar*).
+4.25 Save the file to a folder of your choosing keeping the name that was pre-filled for you. (eg *user005sf.bar*).
 
 ## Section 5: Save your Salesforce credentials as an OpenShift secret
 
