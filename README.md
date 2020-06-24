@@ -99,21 +99,29 @@ In this section you'll create a *Connected App* in Salesforce so that the App Co
 
 ## Section 3: Setup connectivity to Salesforce in App Connect Designer
 
-App Connect Designer is a component of Cloud Pak for Integration that provides an authoring environment in which you can create, test, and share flows for an API. You can share your flows by using the export and import functions, or by adding them to an Asset Repository for reuse.
+App Connect Designer is a component of Cloud Pak for Integration that provides an authoring environment in which you can create, test, and share flows for an API. You can share your flows by using the export and import functions, or by adding them to an Asset Repository for reuse. **Note** You will be sharing the IBM Cloud Pak for Integration cluster with other students so  you will see their work  as you navigate through the tool. You will use a naming scheme for the artifacts that you create that starts with the username assigned to you by the instructors (e.g. *user005*).
 
-3.1 In a new browser tab open the URL for **App Connect Designer**. Sign in with the credentials assigned to you by your instructors. **Note** You will be sharing the IBM Cloud Pak for Integration cluster with other students so  you will see their work  as you navigate through the tool. You will use a naming scheme for the artifacts that you create that starts with the username assigned to you by the instructors (e.g. *user005*).
+3.1 In a new browser tab open the CP4I **Platform Home** URL provided to you by your instructors.
 
-3.2 Click the **Settings** icon and then select **Catalog**
+3.2 Login with your *user???* credentials if prompted
+
+3.3 Click on **Skip Welcome**
+
+3.4 Click on **View instances** and then click the link for **App Connect Designer**
+
+  ![Navigate to API Connect](images/nav-to-ace-designer.png)
+
+3.5 Click the **Settings** icon and then select **Catalog**
 
    ![App Designer Catalog](images/appdesignercatalog.png)
 
-3.3 Expand **Salesforce** .If there are existing connections shown in a drop down list  select **Add a new account ...** from that list.
+3.6 Expand **Salesforce** .If there are existing connections shown in a drop down list  select **Add a new account ...** from that list.
 
    ![New Salesforce Connection](images/addanewaccount.png)
 
    **Note** If there are no existing connection shown click on **Connect**
 
-3.4 Enter the following values referring to the text file from  the previous section where you saved your Salesforce credentials.
+3.7 Enter the following values referring to the text file from  the previous section where you saved your Salesforce credentials.
 
    + For the **Login URL** enter `https://login.salesforce.com`
 
@@ -127,11 +135,11 @@ App Connect Designer is a component of Cloud Pak for Integration that provides a
 
    ![Filled in Salesforce Connection](images/sfconnectionform.png)
 
-3.5 Click on **Connect**. The connection will be given a default name of the  form *Account n*. Click on the 3 vertical dots next to the connection name and select **Rename Account**
+3.8 Click on **Connect**. The connection will be given a default name of the  form *Account n*. Click on the 3 vertical dots next to the connection name and select **Rename Account**
 
   ![Rename account](images/renameaccount.png)   
 
-3.6 Enter the username you used to login to App Connect Designer as the new account name (e.g. *user005*) and click on **Rename Account**.
+3.9 Enter the username you used to login to App Connect Designer as the new account name (e.g. *user005*) and click on **Rename Account**.
 
   ![Rename account](images/renameaccount2.png)  
 
@@ -276,27 +284,37 @@ To deploy an Integration Server for your flow, you need to create a Kubernetes s
 
 In this Step you'll create an Integration Server instance and deploy your flow to it.
 
-6.1 In a separate browser tab bring up the App Connect Dashboard using the URL provided to you by your instructors.  If prompted enter your user credentials. Click **Create server**
+6.1 In a new browser tab open the CP4I **Platform Home** URL provided to you by your instructors.
+
+6.2 Login with your *user???* credentials if prompted
+
+6.3 Click on **Skip Welcome**
+
+6.4 Click on **View instances** and then click the link for **App Connect Dashboard**
+
+  ![Navigate to API Connect](images/nav-to-ace-dashboard.png)
+
+6.5 Click **Create server**
 
   ![Assemble](images/dashboardui.png)
 
-6.2 Click **Add a BAR file** and select the file you exported at the end of the previous section.
+6.6 Click **Add a BAR file** and select the file you exported at the end of the previous section.
 
   ![Continue](images/continue.png)  
 
-6.3 Click **Continue**.
+6.7 Click **Continue**.
 
-6.4 Click **Next** (**Note:** you'll use a helper app to deploy the flow configuration so no need to download the config package).
+6.8 Click **Next** (**Note:** you'll use a helper app to deploy the flow configuration so no need to download the config package).
 
-6.5 Select **Designer** as the type of Integration that you want to run and click **Next**
+6.9 Select **Designer** as the type of Integration that you want to run and click **Next**
 
   ![Integration Type](images/integrationtype.png)
 
-6.6 Change the setting for **Show everything** to **ON**.
+6.10 Change the setting for **Show everything** to **ON**.
 
   ![Show everything](images/showeverything.png)
 
-6.7 Enter the following settings:
+6.11 Enter the following settings:
 
   + In the **Details** section for the **Name** enter `user???sf` where *user???* is the username of your credentials (e.g. *user005sf**)
 
@@ -314,7 +332,7 @@ In this Step you'll create an Integration Server instance and deploy your flow t
 
   ![Bottom Half](images/bottomhalf.png)
 
-6.8 Click **Create**. The status of the server will be eventually shown. Wait until the server status shows as **Started**. Note you may have to refresh the page to see the status change.
+6.12 Click **Create**. The status of the server will be eventually shown. Wait until the server status shows as **Started**. Note you may have to refresh the page to see the status change.
 
   ![Activate API](images/serverstarted.png)
 
@@ -350,23 +368,14 @@ In this Step you'll create an Integration Server instance and deploy your flow t
 $ ./addSalesforceIntegration.sh http://user001-sf.....
 Script being run from correct folder
 Validating student id  ...
-Verifying that Trader Lite Helm chart is already installed ...
-Found Trader Lite Helm chart installed in this project
-Upgrading Trader Lite Helm chart with Salesforce Integration enabled ...
-Release "traderlite" has been upgraded. Happy Helming!
-NAME: traderlite
-LAST DEPLOYED: Mon Jun  1 16:00:12 2020
-NAMESPACE: trader-user001
-STATUS: deployed
-REVISION: 2
-NOTES:
-Trader Lite V2.0 is deployed.
+Verifying that Trader Lite is already installed ...
+Found Trader Lite installed in this project
+Updating Trader Lite with Salesforce Integration enabled ...
+Salesforce Integration completed successfully
 
-Run  the following command to get the URL of  the applications's UI:
- echo "http://"`oc get route traderlite-tradr  -o jsonpath='{.spec.host }'`"/tradr"
 Wait for all pods to be in the 'Ready' state before continuing
 ```
-8.4 Wait for all the pods to start. Run the following command.
+8.4 Wait for the Portfolio pod to restart. Run the following command.
 
 ```
 oc get pods
@@ -376,6 +385,7 @@ oc get pods
   NAME                                        READY   STATUS    RESTARTS   AGE
   traderlite-mariadb-0                        1/1     Running   0          6m21s
   traderlite-mongodb-6c79bf9554-swhvw         1/1     Running   0          6m21s
+  traderlite-operator-6ddd5c4774-l5dcd        1/1     Running   0          19h
   traderlite-portfolio-546d45bf4f-86xqr       1/1     Running   0          3m55s
   traderlite-stock-quote-7965448598-dt7vw     1/1     Running   0          6m21s
   traderlite-trade-history-5648f749c4-v2w9j   1/1     Running   0          6m21s
