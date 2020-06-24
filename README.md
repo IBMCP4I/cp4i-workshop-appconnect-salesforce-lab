@@ -22,7 +22,7 @@ This lab is broken up into the following sections:
 
 1. [Create an Integration Server instance and deploy your flow](#section-6-create-an-integration-server-instance-and-deploy-your-flow)
 
-1. [Get the REST endpoint of your App Connect Flow](#section-7-get-the-rest-endpoint-of-your-app-connect_flow)
+1. [Get the REST endpoint of your App Connect Flow](#section-7-get-the-rest-endpoint-of-your-app-connect-flow)
 
 1. [Test your App Connect Flow with Trader Lite](#section-8-test-your-app-connect-flow-with-trader-lite)
 
