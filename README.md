@@ -83,18 +83,15 @@ In this section you'll create a *Connected App* in Salesforce so that the App Co
 
 2.8 Scroll down to the bottom of the web page and click **Save**
 
-2.9 Copy the **Consumer Key** and **Consumer Secret** to a text file.  You will need them later to connect to Salesforce
+2.9 Copy the **Consumer Key** and **Consumer Secret** to a text file.  You will need them later to connect to Salesforce.
 
-2.10 Check your email for the email address that you use as your Salesforce username. You should have received an email from  Salesforce with the subject **Your new Salesforce security token**. Copy the **Security Token** to the same text file that you used for the  **Consumer Key** and **Consumer Secret**
+2.10 Click on your user name and select **My Settings**. On the left under the **Personal** section click on **Reset My Security Token**
+
+ ![Reset Security Token](images/reset-security-token.png)
+
+2.11 Check your email for the email address that you use as your Salesforce username. You should receive an email from  Salesforce with the subject **Your new Salesforce security token**. Copy the **Security Token** to the same text file that you used for the  **Consumer Key** and **Consumer Secret**
 
   ![Security token](images/sfsectoken.png)
-
-2.11 If you haven't received the  email do the following from Salesforce:
-
-   - Click on your user name and select **My Settings**
-   - On the left under the **Personal** section click on **Reset My Security Token** and check your email again.
-
-   ![Reset Security Token](images/reset-security-token.png)
 
 
 ## Section 3: Setup connectivity to Salesforce in App Connect Designer
@@ -255,15 +252,19 @@ App Connect Designer is a component of Cloud Pak for Integration that provides a
 
   ![Contact Id](images/contactid.png)
 
-4.22 Click **Done**
+4.22 Map the other fields one by one to the corresponding fields in the return object of the **Retrieve contacts** operation
 
-4.23 Next you'll export the flow so it can deployed in an Integration Server instance. Click the **Settings** icon and then select **Dashboard**. Click the 3 vertical dots on the tile for your new flow and select **Export ...** from the context menu.
+  ![Other fields](images/otherfields.png)
+
+4.23 Click **Done**
+
+4.24 Next you'll export the flow so it can deployed in an Integration Server instance. Click the **Settings** icon and then select **Dashboard**. Click the 3 vertical dots on the tile for your new flow and select **Export ...** from the context menu.
 
   ![Export flow](images/exportflow.png)
 
-4.24 Select **Export for integration server (BAR)** and click **Export**
+4.25 Select **Export for integration server (BAR)** and click **Export**
 
-4.25 Save the file to a folder of your choosing keeping the name that was pre-filled for you. (eg *user005sf.bar*).
+4.26 Save the file to a folder of your choosing keeping the name that was pre-filled for you. (eg *user005sf.bar*).
 
 ## Section 5: Save your Salesforce credentials as an OpenShift secret
 
@@ -282,7 +283,7 @@ To deploy an Integration Server for your flow, you need to create a Kubernetes s
 
 ## Section 6: Create an Integration Server instance and deploy your flow
 
-In this Step you'll create an Integration Server instance and deploy your flow to it.
+In this step you'll create an Integration Server instance and deploy your flow to it.
 
 6.1 In a new browser tab open the CP4I **Platform Home** URL provided to you by your instructors.
 
@@ -310,29 +311,23 @@ In this Step you'll create an Integration Server instance and deploy your flow t
 
   ![Integration Type](images/integrationtype.png)
 
-6.10 Change the setting for **Show everything** to **ON**.
-
-  ![Show everything](images/showeverything.png)
-
-6.11 Enter the following settings:
+6.10 Enter the following settings:
 
   + In the **Details** section for the **Name** enter `user???sf` where *user???* is the username of your credentials (e.g. *user005sf**)
 
   + In the **Details** section for  **IBM App Connect Designer flows** select **Enabled for local connectors only**
 
+  + In the **Docker images** section enter `ibm-entitlement-key` as the **Image pull secret**
+
   + In the **Integration Server** section for **Name of the secret that contains the server configuration** enter `user???-sf-connect` where *user???* is the username of your credentials (e.g. *user005-sf-connect**)
 
-  + In the **Configuration for deployments** section change the **Replica count** to 1
+  + In the **Operations Dashboard (OD) configuration** section check **Enable Operations Dashboard** and enter `tracing` as the **OD tracing instance namespace**
 
-  The top half of the dialog should look like the following:
+  The  dialog should now look like the following:
 
-  ![Top Half](images/tophalf.png)
+  ![Integration server dialog](images/intserverdialog.png)
 
-  The bottom half of the dialog should look like the following:
-
-  ![Bottom Half](images/bottomhalf.png)
-
-6.12 Click **Create**. The status of the server will be eventually shown. Wait until the server status shows as **Started**. Note you may have to refresh the page to see the status change.
+6.11 Click **Create**. The status of the server will be eventually shown. Wait until the server status shows as **Started**. Note you may have to refresh the page to see the status change.
 
   ![Activate API](images/serverstarted.png)
 
